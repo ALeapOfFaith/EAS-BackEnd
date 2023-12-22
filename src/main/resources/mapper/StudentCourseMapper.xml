@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace对应哪个mapper文件 -->
+<mapper namespace="com.example.springHomework.mapper.StudentCourseMapper">
+    <select id="checkCourse" resultType="com.example.springHomework.entity.CourseProfVo">
+        select course.cno,cname,pname,credit,score from sc,course,professor where sc.sno=#{sno} and sc.cno=course.cno and course.pno=professor.pno order by course.cno;
+    </select>
+
+    <select id="checkStudentCourse" resultType="com.example.springHomework.entity.StudentCourseVo">
+        select course.cno,cname,credit,student.sno,sname,score from sc,course,student where course.pno=#{pno} and sc.cno=course.cno and sc.sno=student.sno order by course.cno;
+    </select>
+</mapper>

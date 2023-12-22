@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace对应哪个mapper文件 -->
+<mapper namespace="com.example.springHomework.mapper.CourseMapper">
+    <select id="selectAvailableCourses" resultType="com.example.springHomework.entity.CourseProfVo">
+        select distinct course.cno,cname,pname,credit from course,professor where course.pno=professor.pno and course.cno not in (select cno from sc where sc.sno=#{sno}) order by course.cno;
+    </select>
+</mapper>

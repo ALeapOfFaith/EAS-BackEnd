@@ -1,0 +1,21 @@
+server:
+  port: 88
+spring:
+#  mvc:
+#    view:
+#      # ????????
+#      prefix: /view/
+#      # ????????
+#      suffix: .html
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springhomework
+    username: root
+    password: 2021210948
+#mybatis:
+#  type-aliases-package: com.example.springhomework.entity
+mybatis-plus:
+  # ???? ??????????*(classpath ?????) ?????SQL????
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
